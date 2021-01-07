@@ -206,6 +206,7 @@ void webSocketEvent(WStype_t type, uint8_t * payload, size_t length) {
 
 bool requestRestApi() {
   WiFiClientSecure client;
+  client.setInsecure();
   if (!client.connect(restApiHost, 443)) {
     error("Internet connection lost.\nCheck the Wi-Fi source.");
     return false;
